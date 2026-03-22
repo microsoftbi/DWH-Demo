@@ -1,0 +1,15 @@
+USE master;
+GO
+
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'DV')
+BEGIN
+    ALTER DATABASE DV SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DV;
+END
+GO
+
+CREATE DATABASE DV;
+GO
+
+PRINT 'Database DV created successfully.';
+GO

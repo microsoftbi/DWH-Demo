@@ -1,0 +1,15 @@
+USE master;
+GO
+
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'OLShop')
+BEGIN
+    ALTER DATABASE OLShop SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE OLShop;
+END
+GO
+
+CREATE DATABASE OLShop;
+GO
+
+PRINT 'Database OLShop created successfully.';
+GO

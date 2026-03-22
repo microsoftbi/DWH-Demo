@@ -1,0 +1,15 @@
+USE master;
+GO
+
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'DM')
+BEGIN
+    ALTER DATABASE DM SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DM;
+END
+GO
+
+CREATE DATABASE DM;
+GO
+
+PRINT 'Database DM created successfully.';
+GO
